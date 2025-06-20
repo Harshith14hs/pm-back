@@ -12,8 +12,6 @@ const projectRoutes = require('./routes/projects');
 const taskRoutes = require('./routes/tasks');
 const postRoutes = require('./routes/posts');
 const errorHandler = require('./middleware/errorHandler');
-const postRoutes = require('./routes/posts');
-app.use('/api/posts', postRoutes);
 
 const app = express();
 

@@ -12,12 +12,14 @@ const projectRoutes = require('./routes/projects');
 const taskRoutes = require('./routes/tasks');
 const postRoutes = require('./routes/posts');
 const errorHandler = require('./middleware/errorHandler');
+const postRoutes = require('./routes/posts');
+app.use('/api/posts', postRoutes);
 
 const app = express();
 
 // CORS configuration
 const corsOptions = {
-    origin: '*',
+    origin: 'https://project-manager-7u07.onrender.com',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
     credentials: true

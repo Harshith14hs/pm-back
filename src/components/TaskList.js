@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './TaskList.css';
 
-const API_URL = 'http://localhost:5005/api/tasks';
+const API_URL = 'https://project-back-ujdy.onrender.com/api/tasks';
 
 const TaskList = ({ project }) => {
   const [tasks, setTasks] = useState([]);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 
-const API_URL = 'http://localhost:5005/api/auth/register';
+const API_URL = 'https://project-back-ujdy.onrender.com/api/auth/register';
 
 const Signin = (props) => {
   const { onSignin, showToast } = props;

@@ -3,8 +3,8 @@ import './ProjectList.css';
 import ProjectCard from './ProjectCard';
 import { useAuth } from '../context/AuthContext';
 
-const API_URL = 'http://localhost:5005/api/projects';
-const TASKS_URL = 'http://localhost:5005/api/tasks';
+const API_URL = 'https://project-back-ujdy.onrender.com/api/projects';
+const TASKS_URL = 'https://project-back-ujdy.onrender.com/api/tasks';
 
 const ProjectList = ({ onSelectProject, selectedProject, showMyProjects = false, search }) => {
   const [projects, setProjects] = useState([]);

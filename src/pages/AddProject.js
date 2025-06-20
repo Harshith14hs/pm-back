@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Auth.css';
 
-const API_URL = 'http://localhost:5005/api/projects';
+const API_URL = 'https://project-back-ujdy.onrender.com/api/projects';
 
 const AddProject = () => {
   const [name, setName] = useState('');

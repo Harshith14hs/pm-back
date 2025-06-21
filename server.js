@@ -10,14 +10,14 @@ dotenv.config();
 const authRoutes = require('./routes/auth');
 const projectRoutes = require('./routes/projects');
 const taskRoutes = require('./routes/tasks');
-const postRoutes = require('./routes/posts');
+
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
 // CORS configuration
 const corsOptions = {
-    origin: 'https://project-manager-7u07.onrender.com',
+    origin:  ['http://localhost:3000','https://project-manager-7u07.onrender.com'],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
     credentials: true
@@ -58,7 +58,6 @@ connectDB();
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/tasks', taskRoutes);
-app.use('/api/posts', postRoutes);
 
 // Health check endpoint
 app.get('/health', (req, res) => {

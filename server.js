@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const path = require('path');
 
 // Load environment variables
 dotenv.config();
@@ -59,6 +60,21 @@ app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/tasks', taskRoutes);
 
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, '../frontend/build')));
+
+// Catch-all: send React's index.html for non-API routes
+app.get('*', (req, res) => {
+    if (req.path.startsWith('/api')) {
+        return res.status(404).json({
+            error: {
+                message: 'Route not found'
+            }
+        });
+    }
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
     res.json({
@@ -71,15 +87,6 @@ app.get('/health', (req, res) => {
 
 // Error handling
 app.use(errorHandler);
-
-// 404 handler
-app.use((req, res) => {
-    res.status(404).json({
-        error: {
-            message: 'Route not found'
-        }
-    });
-});
 
 // Start server
 const PORT = process.env.PORT || 5005;

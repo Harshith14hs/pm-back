@@ -65,8 +65,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/tasks', taskRoutes);
 
-// Serve static files from the React app (now in ./build)
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve static files from the React app (now in ../frontend/build)
+app.use(express.static(path.join(__dirname, '../frontend/build')));
 
 // Catch-all: send React's index.html for non-API routes
 app.get('*', (req, res) => {
@@ -77,7 +77,7 @@ app.get('*', (req, res) => {
             }
         });
     }
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
 });
 
 // Health check endpoint

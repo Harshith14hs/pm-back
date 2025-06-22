@@ -11,6 +11,7 @@ dotenv.config();
 const authRoutes = require('./routes/auth');
 const projectRoutes = require('./routes/projects');
 const taskRoutes = require('./routes/tasks');
+const messageRoutes = require('./routes/messages');
 
 const errorHandler = require('./middleware/errorHandler');
 
@@ -64,6 +65,7 @@ connectDB();
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
 app.use('/api/tasks', taskRoutes);
+app.use('/api/messages', messageRoutes);
 
 // Serve static files from the React app (now in ../frontend/build)
 app.use(express.static(path.join(__dirname, '../frontend/build')));

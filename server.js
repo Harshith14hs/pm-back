@@ -68,16 +68,10 @@ app.use('/api/tasks', taskRoutes);
 app.use(express.static(path.join(__dirname, 'build')));
 
 // Catch-all: send React's index.html for non-API routes
+
 app.get('*', (req, res) => {
-    if (req.path.startsWith('/api')) {
-        return res.status(404).json({
-            error: {
-                message: 'Route not found'
-            }
-        });
-    }
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+  });
 
 // Health check endpoint
 app.get('/health', (req, res) => {

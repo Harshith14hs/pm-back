@@ -8,9 +8,9 @@ const path = require('path');
 dotenv.config();
 
 // Import routes
-const authRoutes = require('./backend/routes/auth');
-const projectRoutes = require('./backend/routes/projects');
-const taskRoutes = require('./backend/routes/tasks');
+const authRoutes = require('./routes/auth');
+const projectRoutes = require('./routes/projects');
+const taskRoutes = require('./routes/tasks');
 
 const errorHandler = require('./middleware/errorHandler');
 
